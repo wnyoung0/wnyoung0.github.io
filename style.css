@@ -1,6 +1,6 @@
 :root{color-scheme:dark;--bg:#111a18;--panel:#1b2723;--panel2:#202f29;--line:#34453d;--text:#f3f5ed;--muted:#a7b5aa;--lime:#d4f36a;--mint:#8fe0b3;--rose:#ffb895}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at 82% -10%,#31483a 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+body{margin:0;background:radial-gradient(ellipse at 82% -10%,#E5D8Da 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
 .wrap{width:min(1040px,100% - 36px);margin:auto;padding:48px 0 72px}
 header{max-width:760px;margin-bottom:30px}
 .eyebrow{color:var(--lime);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
@@ -8,7 +8,7 @@ h1{font-size:clamp(2rem,5vw,3.35rem);line-height:1.12;letter-spacing:-.055em;mar
 header p,.hint{color:var(--muted)}
 header p{font-size:1.04rem;max-width:670px;margin:0}
 .layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:22px;align-items:start}
-.panel{background:linear-gradient(155deg,#1d2b25,#18221f);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 60px #0002}
+.panel{background:linear-gradient(155deg,#8d2b85,#78229f);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 60px #0002}
 .panel h2{font-size:1.12rem;letter-spacing:-.02em;margin:0 0 6px}
 .panel-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:16px}
 .small{font-size:.86rem;color:var(--muted);margin:0}
@@ -34,7 +34,7 @@ button{font:inherit;cursor:pointer}
 .toggle input{accent-color:var(--lime);width:16px;height:16px}
 .add-row{display:flex;justify-content:center;padding-top:14px}
 .results{position:sticky;top:20px}
-.result-main{padding:20px;background:#121c18;border:1px solid #394a40;border-radius:16px;margin:16px 0 12px}
+.result-main{padding:20px;background:#12ccc8;border:1px solid #394a40;border-radius:16px;margin:16px 0 12px}
 .result-label{font-size:.83rem;color:var(--muted);font-weight:700}
 .prob{font-size:clamp(2.4rem,5vw,3.5rem);font-weight:900;letter-spacing:-.06em;line-height:1.15;color:var(--lime);margin:5px 0}
 .mean{font-size:1.65rem;font-weight:850;letter-spacing:-.04em;margin:4px 0 0}
