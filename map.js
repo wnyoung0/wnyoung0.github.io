@@ -102,7 +102,7 @@ function openPanel(id){
   }else if(id==="github"){
     html+='<p class="detail">코드와 프로젝트를 모아두는 공간입니다.</p><a class="link-card" href="https://github.com/wnyoung0" target="_blank" rel="noopener noreferrer">GitHub 프로필 열기 <span aria-hidden="true">↗</span></a>';
   }else if(id==="hamster"){
-    html+='<figure class="photo-frame"><img id="hamsterPhoto" src="src/hamster.png" alt="햄스터 사진"><div class="photo-empty" id="photoEmpty" hidden><strong>♡</strong><span>파일 없는데 어디갔냐 ;;</span></div></figure><p class="detail">햄스터 사진을 이 프레임에 표시합니다.</p>';
+    html+='<figure class="photo-frame"><img id="hamsterPhoto" src="src/hamster.png" alt="햄스터 사진"><div class="photo-empty" id="photoEmpty"><strong>♡</strong><span></span></div></figure><p class="detail">햄스터.</p>';
   }
   panelContent.innerHTML=html;
   panelContent.querySelector("[data-close]").addEventListener("click",closePanel);
