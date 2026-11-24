@@ -72,7 +72,7 @@ function renderBoard(){
   for(let i=0;i<SIZE*SIZE;i++){
     const target=destinationByIndex.get(i);
     if(walls.has(i)){
-      const wall=document.createElement("button");wall.type="button";wall.className="cell wall";wall.dataset.wall=String(i);wall.setAttribute("aria-label","벽. 클릭하면 부서집니다.");wall.title="클릭해서 벽 부수기";fragment.appendChild(wall);
+      const wall=document.createElement("button");wall.type="button";wall.className="cell wall";wall.dataset.wall=String(i);wall.setAttribute("aria-label","벽입니다. 클릭하면 부서집니다.");wall.title="클릭해서 벽 부수기";fragment.appendChild(wall);
     }else if(target){
       const tile=document.createElement("button");tile.type="button";tile.className="cell target "+target.id;tile.dataset.target=target.id;tile.setAttribute("aria-label",target.title+" 페이지로 이동");tile.innerHTML='<span class="tile-label">'+target.label+"</span>";fragment.appendChild(tile);
     }else{
@@ -98,9 +98,9 @@ function openPanel(id){
   const close='<button class="panel-close" type="button" data-close>닫기</button>';
   let html='<div class="panel-top"><p class="eyebrow">DESTINATION / '+item.label+'</p>'+close+'</div><h2>'+item.title+'</h2>';
   if(id==="about"){
-    html+='<p class="detail">안녕하세요. 이곳은 제 소개와 관심사, 작업을 모아두는 개인 웹페이지입니다.</p><p class="detail">소개와 관심 분야를 이 문장에 추가해 보세요.</p>';
+    html+='<p class="detail">소개 :  이곳은 자료구조 및 알고리즘 수업 덕분에 탄생한 웹페이지이빈다.</p><p class="detail">여기 내용은 아마 생각나면 나중에 채우지 않을까 싶습니다. 근데 아마 당분간 방치될 듯</p>';
   }else if(id==="github"){
-    html+='<p class="detail">코드와 프로젝트를 모아두는 공간입니다.</p><a class="link-card" href="https://github.com/wnyoung0" target="_blank" rel="noopener noreferrer">GitHub 프로필 열기 <span aria-hidden="true">↗</span></a>';
+    html+='<p class="detail">깃허브 입니다. 물론 공개된 뭔가는 딱히 없습니다. 뭔가를 개발중이긴 한데 와우 하느라 유기했습니다. 아마 완성되면 공개될 듯 합니다.</p><a class="link-card" href="https://github.com/wnyoung0" target="_blank" rel="noopener noreferrer">GitHub 프로필 열기 <span aria-hidden="true">↗</span></a>';
   }else if(id==="hamster"){
     html+='<figure class="photo-frame"><img id="hamsterPhoto" src="src/hamster.png" alt="hamster"></figure><p class="detail">햄스터.</p>';
   }
@@ -115,7 +115,7 @@ async function travelTo(id){
   const target=destinations.find(item=>item.id===id);
   closePanel();
   const path=findPath(position,target.index);
-  if(!path){statusEl.textContent="경로가 막혀 있어요. 벽을 부수고 다시 선택해 주세요.";return;}
+  if(!path){statusEl.textContent="경로가 막혀 있네요. 벽을 부수거나 뚤릴 때 까지 맵을 재생성하세요.";return;}
   moving=true;
   statusEl.textContent="A* 경로를 따라 이동 중";
   const stepDelay=window.matchMedia("(prefers-reduced-motion: reduce)").matches?0:Math.min(75,850/Math.max(1,path.length-1));
@@ -125,7 +125,7 @@ async function travelTo(id){
 }
 board.addEventListener("click",event=>{
   const wallButton=event.target.closest("[data-wall]");
-  if(wallButton&&!moving){walls.delete(Number(wallButton.dataset.wall));renderBoard();statusEl.textContent="벽을 부쉈습니다. 이제 경로가 열렸어요.";return;}
+  if(wallButton&&!moving){walls.delete(Number(wallButton.dataset.wall));renderBoard();statusEl.textContent="벽을 부쉈습니다. 뭔가 변화가 생겼으니 방금은 못 했던 무언가를 할 수도 있지 않을까 싶네요.";return;}
   const targetButton=event.target.closest("[data-target]");
   if(targetButton&&!moving)travelTo(targetButton.dataset.target);
 });
