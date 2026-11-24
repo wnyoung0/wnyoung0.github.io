@@ -4,40 +4,41 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#111a18">
-<title>원영의 웹페이지</title>
+<title>대충 웹페이지 제목임</title>
 <link rel="stylesheet" href="map.css">
 <script src="map.js" defer></script>
 </head>
 <body>
 <main class="shell">
 <header class="topbar">
-  <a class="wordmark" href="./" aria-label="메인으로"><span class="mark">W</span><span>WONYOUNG<span class="muted">.SPACE</span></span></a>
+  <a class="wordmark" href="./" aria-label="메인으로"><span class="mark">W</span><span>wnyoung0<span class="muted">.github.io</span></span></a>
   <span class="top-note">PERSONAL WEB / 2026</span>
 </header>
 <section class="intro">
   <div>
     <p class="eyebrow">A SMALL MAP OF MY WORLD</p>
-    <h1>둘러보고 싶은 곳을<br><em>선택해 주세요.</em></h1>
+    <h1>가고 싶은 곳을<br><em>선택해 보거라.</em></h1>
+    <img id="hamsterPhoto" src="src/hamster.png">
     <p class="lede">목적지를 누르면 커서가 벽을 피해 자동으로 찾아갑니다.</p>
   </div>
-  <div class="map-meta"><span class="live-dot"></span><span>11 × 11 탐색 보드</span><span class="meta-divider"></span><span id="wallCount">벽 18개</span></div>
+  <div class="map-meta"><span class="live-dot"></span><span>11 × 11 보드</span><span class="meta-divider"></span><span id="wallCount">벽 18개</span></div>
 </section>
 <section class="workspace" aria-label="페이지 탐색">
   <div class="map-column">
     <div class="board-heading"><span>W / MAP 01</span><span id="mapStatus" aria-live="polite">목적지를 선택하세요</span></div>
-    <img id="hamsterPhoto" src="src/hamster.png" alt="햄스터 사진">
+    
     <div class="board-wrap">
       <div class="board" id="board" aria-label="11 곱하기 11 탐색 격자"></div>
       <div class="cursor" id="cursor" aria-label="자동 이동 커서"><span></span></div>
     </div>
-    <div class="map-foot"><span><i class="key-dot destination"></i> 목적지</span><span><i class="key-dot wall-key"></i> 클릭하면 부서지는 벽</span><span class="foot-right">방향키 이동 없음</span></div>
+    <div class="map-foot"><span><i class="key-dot destination"></i> 목적지</span><span><i class="key-dot wall-key"></i> 클릭하면 부서지는 벽</span></div>
   </div>
   <aside class="content-panel" id="contentPanel" aria-live="polite" aria-label="선택한 페이지">
     <div class="panel-empty" id="emptyPanel">
       <div class="empty-mark">↗</div>
       <p class="eyebrow">DESTINATION</p>
       <h2>도착할 곳을<br>골라보세요.</h2>
-      <p>페이지 칸에 도착하면 이곳에 내용이 열립니다.</p>
+      <p>페이지 칸에 도착하면 내용이 열립니다.</p>
     </div>
     <div class="panel-content" id="panelContent" hidden></div>
   </aside>
