@@ -131,6 +131,6 @@ board.addEventListener("click",event=>{
 });
 document.getElementById("resetMap").addEventListener("click",()=>{
   if(moving)return;
-  randomizeWalls();placeCursor(START);renderBoard();closePanel();statusEl.textContent="새 지도가 준비됐습니다.";
+  randomizeWalls();placeCursor(START);renderBoard();closePanel();statusEl.textContent="맵 재생성됨";
 });
 randomizeWalls();renderBoard();placeCursor(START);
