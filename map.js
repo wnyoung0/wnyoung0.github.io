@@ -1,7 +1,7 @@
 "use strict";
 const SIZE=11;
 const START=5*SIZE+5;
-const WALL_COUNT=18;
+const WALL_COUNT=24;
 const destinations=[
   {id:"about",index:1*SIZE+1,label:"ABOUT",title:"소개"},
   {id:"github",index:1*SIZE+9,label:"GITHUB",title:"GitHub"},
