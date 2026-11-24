@@ -47,3 +47,4 @@ button{font:inherit;cursor:pointer}
 .status{min-height:1.3em;color:var(--rose);font-size:.84rem;margin-top:9px}
 footer{color:#829287;font-size:.79rem;margin-top:24px}
 @media(max-width:760px){.wrap{padding:30px 0 48px}.layout{grid-template-columns:1fr}.results{position:static}.control{align-items:stretch;flex-direction:column}.control .btn{width:100%}}
+\n.home-link{display:inline-flex;margin-bottom:20px;color:var(--lime);font-size:.86rem;font-weight:750;text-decoration:none}\n.home-link:hover{text-decoration:underline;text-underline-offset:4px}\n
