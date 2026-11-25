@@ -23,16 +23,17 @@ function randomizeWalls(){
   const reserved=new Set([START,...destinations.map(item=>item.index)]);
   const candidates=[];
   for(let i=0;i<SIZE*SIZE;i++)if(!reserved.has(i))candidates.push(i);
-  for(let attempt=0;attempt<2000;attempt++){
+  //for(let attempt=0;attempt<2000;attempt++){
     for(let i=candidates.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[candidates[i],candidates[j]]=[candidates[j],candidates[i]];}
     walls=new Set(candidates.slice(0,WALL_COUNT));
-    if(destinations.every(item=>findPath(START,item.index)!==null))return;
-  }
+    //if(destinations.every(item=>findPath(START,item.index)!==null))return;
+    return
+  //}
   // A connected fallback layout keeps all destinations reachable.
-  const edgeCandidates=[];
-  for(let c=0;c<SIZE;c++){edgeCandidates.push(c,(SIZE-1)*SIZE+c);}
-  for(let r=1;r<SIZE-1;r++)edgeCandidates.push(r*SIZE,r*SIZE+SIZE-1);
-  walls=new Set(edgeCandidates.filter(i=>!reserved.has(i)).slice(0,WALL_COUNT));
+ // const edgeCandidates=[];
+  //for(let c=0;c<SIZE;c++){edgeCandidates.push(c,(SIZE-1)*SIZE+c);}
+  //for(let r=1;r<SIZE-1;r++)edgeCandidates.push(r*SIZE,r*SIZE+SIZE-1);
+  //walls=new Set(edgeCandidates.filter(i=>!reserved.has(i)).slice(0,WALL_COUNT));
 }
 function neighbors(index){
   const r=Math.floor(index/SIZE),c=index%SIZE,result=[];
@@ -98,7 +99,7 @@ function openPanel(id){
   const close='<button class="panel-close" type="button" data-close>닫기</button>';
   let html='<div class="panel-top"><p class="eyebrow">DESTINATION / '+item.label+'</p>'+close+'</div><h2>'+item.title+'</h2>';
   if(id==="about"){
-    html+='<p class="detail">소개 :  이곳은 자료구조 및 알고리즘 수업 덕분에 탄생한 웹페이지이빈다.</p><p class="detail">여기 내용은 아마 생각나면 나중에 채우지 않을까 싶습니다. 근데 아마 당분간 방치될 듯</p>';
+    html+='<p class="detail">이곳은 자료구조 및 알고리즘 수업 덕분에 탄생한 웹페이지이빈다.</p><p class="detail">여기 내용은 아마 생각나면 나중에 채우지 않을까 싶습니다. 근데 아마 당분간 방치될 듯</p>';
   }else if(id==="github"){
     html+='<p class="detail">깃허브 입니다. 물론 공개된 뭔가는 딱히 없습니다. 뭔가를 개발중이긴 한데 와우 하느라 유기했습니다. 아마 완성되면 공개될 듯 합니다.</p><a class="link-card" href="https://github.com/wnyoung0" target="_blank" rel="noopener noreferrer">GitHub 프로필 열기 <span aria-hidden="true">↗</span></a>';
   }else if(id==="hamster"){
@@ -115,9 +116,9 @@ async function travelTo(id){
   const target=destinations.find(item=>item.id===id);
   closePanel();
   const path=findPath(position,target.index);
-  if(!path){statusEl.textContent="경로가 막혀 있네요. 벽을 부수거나 뚤릴 때 까지 맵을 재생성하세요.";return;}
+  if(!path){statusEl.textContent="경로가 막혀 있네요. 벽을 부수거나 뚤릴 때 까지 맵을 재생성하거나 하세요.";return;}
   moving=true;
-  statusEl.textContent="A* 경로를 따라 이동 중";
+  statusEl.textContent="경로를 따라 이동 중";
   const stepDelay=window.matchMedia("(prefers-reduced-motion: reduce)").matches?0:Math.min(75,850/Math.max(1,path.length-1));
   for(const cell of path.slice(1)){placeCursor(cell);if(stepDelay)await wait(stepDelay);}
   moving=false;statusEl.textContent="도착했습니다";
